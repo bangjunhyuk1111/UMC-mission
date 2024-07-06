@@ -1,0 +1,14 @@
+// store.controller.js
+import { response } from "../../config/response.js";
+import { status } from "../../config/response.status.js";
+
+export const reviewPreview = async (req, res, next) => {
+    return res.send(response(status.SUCCESS, await getReview(req.params.storeId, req.query)));
+}
+
+export const addReview = async (req, res, next) => {
+    console.log("body", req.body);
+    console.log("files", req.file);
+
+    res.send(response(status.SUCCESS, await registReview(req.params.storeId, req.body)));
+}
